@@ -1,0 +1,18 @@
+>sqlite3.exe storage/ecomm.sqlite3
+
+.databases
+.tables
+select * from users;
+delete from users where id=1;
+--------------------------------
+bundle install
+rails generate model User email:string password_digest:string name:string country:string
+rails generate controller Sessions new create destroy
+rails db:migrate
+rails s
+
+---------------------------------
+
+to fetch db:
+
+>sqlite3.exe storage/ecomm.sqlite3
