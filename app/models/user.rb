@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 # Ensure your model includes the necessary attributes
 attr_accessor :password_reset_token, :password_reset_sent_at
-before_create :generate_password_reset_token
+# before_create :generate_password_reset_token
 
  has_secure_password
   validates :name, presence: true

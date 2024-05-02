@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/create'
+
   resources :users, only: [:new, :create]
    resources :sessions, only: [:new, :create, :destroy]
   
@@ -23,6 +22,8 @@ resources :admins, only: [:index, :new, :create, :edit, :update, :destroy,:show]
   get 'expensecategory/edit'
     get 'admin/new'
   get 'admin/edit'
+    get 'password_resets/new'
+  get 'password_resets/create'
   get '/login', to: 'sessions#new'
    get '/dashboard', to: 'dashboard#index'
    
