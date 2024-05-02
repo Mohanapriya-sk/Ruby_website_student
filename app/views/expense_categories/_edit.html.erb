@@ -1,0 +1,37 @@
+	<div id="mySidenav2" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+		 <%= form_with(model: @expense_category, id: 'expenseForm_2', method: :patch, local: true) do |form| %>
+    
+  <div class="form-group">
+    <%= form.label :name, "Name:" %>
+    <%= form.text_field :name, class: "form-control", id: "expense_name_2", placeholder: "Enter name" %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :description, "Description:" %>
+    <%= form.text_area :description, class: "form-control", id: "expense_description_2", placeholder: "Enter description" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :color, "Color:" %>
+    <%= form.text_field :color, id: "expense_color_2" , class: "form-control", placeholder: "Enter color" %>
+  </div>
+   <div class="form-group">
+  <p>
+    <%= form.label :enabled, "Enabled:" %>
+ 
+   <label class="toggleSwitch nolabel" onclick="">
+        
+         <%= form.check_box :enabled, id: "expense_ena_2" ,class: "toggle-checkbox"%>
+        <span>
+            <span> &nbsp;X</span>
+            <span>&#10003;</span>
+        </span>
+        <a></a>
+    </label>
+    </p>
+    </div>
+  <%= form.submit "Update Expense Category",id: "edit_expsubmit_2" , class: "btn btn-primary" %>
+<% end %>
+
+		</div>
+

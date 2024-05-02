@@ -1,0 +1,16 @@
+
+ <%= render 'shared/header' %>
+  <!-- Include the sidebar navigation -->
+  <%= render 'shared/navbar', admins: @admins %>
+
+   <!-- Main Content -->
+  
+ 
+     <%= render 'shared/admin', admins: @admins  %>
+     <%= render 'admins/new' %>
+     <%= render 'admins/edit' %>
+     <%= render 'admins/show' %>
+<%= render 'shared/footeradmin' %>
+
+
+

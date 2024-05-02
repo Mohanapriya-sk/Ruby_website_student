@@ -1,0 +1,57 @@
+
+       
+
+
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <%= form_with(model: @category, url: create_expense_category_action_path, method: :post, html: { id: 'expense-form' }) do |form| %>
+
+      <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this expense category from being saved:</h2>
+      <ul>
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "Name:" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter name" %>
+  </div>
+ 
+  <div class="form-group">
+    <%= form.label :description, "Description:" %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Enter description" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :color, "Color:" %>
+    <%= form.text_field :color, class: "form-control", placeholder: "Enter Color" %>
+  </div>
+  <div class="form-group">
+  <p>
+    <%= form.label :enabled, "Enabled:" %>
+  
+      <label class="toggleSwitch nolabel" onclick="">
+        
+         <%= form.check_box :enabled, checked: true , class: "toggle-checkbox" %>
+        <span>
+            <span> &nbsp;X</span>
+            <span>&#10003;</span>
+        </span>
+        <a></a>
+    </label>
+  </p>
+    </div>
+
+
+  <%= form.submit "Create Expense Category", class: "btn btn-primary" %>
+<% end %>
+
+ 
+    </div>
+
+ 
+ 

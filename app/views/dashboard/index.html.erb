@@ -1,0 +1,130 @@
+
+ <%= render 'shared/header' %>
+  <!-- Include the sidebar navigation -->
+  <%= render 'shared/navbar' %>
+   <!-- Main Content -->
+    <div class="col-lg-10" id="sidebarpart2">
+      <div class="card card-3">
+        <div class="card-header"><span style="font-size:20px;font-weight: 500px;"><i class="bx bx-left-arrow-alt"></i> Expences list</span>
+        	<span style="float:right"><input placeholder="search" class="searchcls" type="text" value="">
+        	
+        	<button class="refreshbtn"><span style="padding-right:10px;"><svg viewBox="64 64 896 896" focusable="false" data-icon="redo" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M758.2 839.1C851.8 765.9 912 651.9 912 523.9 912 303 733.5 124.3 512.6 124 291.4 123.7 112 302.8 112 523.9c0 125.2 57.5 236.9 147.6 310.2 3.5 2.8 8.6 2.2 11.4-1.3l39.4-50.5c2.7-3.4 2.1-8.3-1.2-11.1-8.1-6.6-15.9-13.7-23.4-21.2a318.64 318.64 0 01-68.6-101.7C200.4 609 192 567.1 192 523.9s8.4-85.1 25.1-124.5c16.1-38.1 39.2-72.3 68.6-101.7 29.4-29.4 63.6-52.5 101.7-68.6C426.9 212.4 468.8 204 512 204s85.1 8.4 124.5 25.1c38.1 16.1 72.3 39.2 101.7 68.6 29.4 29.4 52.5 63.6 68.6 101.7 16.7 39.4 25.1 81.3 25.1 124.5s-8.4 85.1-25.1 124.5a318.64 318.64 0 01-68.6 101.7c-9.3 9.3-19.1 18-29.3 26L668.2 724a8 8 0 00-14.1 3l-39.6 162.2c-1.2 5 2.6 9.9 7.7 9.9l167 .8c6.7 0 10.5-7.7 6.3-12.9l-37.3-47.9z"></path></svg></span>Refresh</button>
+<span onclick="openNav()" class="createbtn">Add New Expense</span></span>
+        </div>
+        <div class="card-body">
+ 
+      <table id="example" class="table table-hover responsive nowrap" style="width:100%">
+        <thead>
+          <tr>
+            <th>Client Name</th>
+            <th>Phone Number</th>
+            <th>Profession</th>
+            <th>Date of Birth</th>
+            <th>App Access</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="#">
+                <div class="d-flex align-items-center">
+                 
+
+                  <div class="">
+                    <p class="font-weight-bold mb-0">Ethan Black</p>
+                    <p class="text-muted mb-0">ethan-black@example.com</p>
+                  </div>
+                </div>
+              </a>
+            </td>
+            <td>(784) 667 8768</td>
+            <td>Designer</td>
+            <td>09/04/1996</td>
+            <td>
+              <div class="badge badge-success badge-success-alt">Enabled</div>
+            </td>
+            <td>
+             <div class="dropdown">
+  <button class="btn btn-sm btn-icon" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="bx bx-dots-horizontal-rounded" data-toggle="tooltip" data-placement="top" title="Actions"></i>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+  	<a class="dropdown-item" href="#"><svg viewBox="64 64 896 896" focusable="false" data-icon="eye" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"></path></svg> Show</a>
+    <a class="dropdown-item" href="#"><i class="bx bxs-pencil"></i> Edit</a>
+    <a class="dropdown-item" href="#"><i class="bx bxs-trash" style="padding-right:.3rem!important"></i>Delete</a>
+  </div>
+</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <a href="#">
+                <div class="d-flex align-items-center">
+                 
+
+                  <div class="">
+                    <p class="font-weight-bold mb-0">Julie Richards</p>
+                    <p class="text-muted mb-0">julie_89@example.com</p>
+                  </div>
+                </div>
+              </a>
+            </td>
+            <td> (937) 874 6878</td>
+            <td>Investment Banker</td>
+            <td>13/01/1989</td>
+            <td>
+              <div class="badge badge-success badge-success-alt">Enabled</div>
+            </td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-icon" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="bx bx-dots-horizontal-rounded" data-toggle="tooltip" data-placement="top"
+                        title="Actions"></i>
+                    </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                  <a class="dropdown-item" href="#"><i class="bx bxs-pencil mr-2"></i> Edit Profile</a>
+                  <a class="dropdown-item text-danger" href="#"><i class="bx bxs-trash mr-2"></i> Remove</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+        </div>
+      </div>
+    </div>
+
+<div class="overlay" id="overlay"></div>
+</div>
+</div>
+  </div>
+
+</div>
+	<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		 <form action="#">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <button type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+    <div class="switch"></div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+		</div>
+
+ <%= render 'shared/footer' %>
+  <!-- Your main content area -->
+  <div class="content">
+    <%= yield %>
+  </div>
+

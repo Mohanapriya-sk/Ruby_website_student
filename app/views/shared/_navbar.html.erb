@@ -1,0 +1,65 @@
+<!-- app/views/shared/_navbar.html.erb -->
+ <% if current_user %>
+
+   <!-- Example logout link in view -->
+
+<div class="container-fluid">
+  <div class="row mt-4">
+    <!-- Sidebar -->
+    <div class="col-lg-2">
+      
+
+  
+<nav class="sidebar">
+  <div class="menu_content">
+     <!-- Sidebar Open / Close -->
+      <div class="logo_item pb-50">
+        
+        <%= image_tag('logo.png', class: 'insidebar') %>Ecommerce
+        
+      </div>
+    <ul class="menu_items">
+      <li class="item">
+      <%= link_to expensepath_path, class: "nav_link clicknav" do %>
+          <span class="navlink_icon">
+            <svg viewBox="64 64 896 896" focusable="false" data-icon="reconciliation" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M676 565c-50.8 0-92 41.2-92 92s41.2 92 92 92 92-41.2 92-92-41.2-92-92-92zm0 126c-18.8 0-34-15.2-34-34s15.2-34 34-34 34 15.2 34 34-15.2 34-34 34zm204-523H668c0-30.9-25.1-56-56-56h-80c-30.9 0-56 25.1-56 56H264c-17.7 0-32 14.3-32 32v200h-88c-17.7 0-32 14.3-32 32v448c0 17.7 14.3 32 32 32h336c17.7 0 32-14.3 32-32v-16h368c17.7 0 32-14.3 32-32V200c0-17.7-14.3-32-32-32zm-412 64h72v-56h64v56h72v48H468v-48zm-20 616H176V616h272v232zm0-296H176v-88h272v88zm392 240H512V432c0-17.7-14.3-32-32-32H304V240h100v104h336V240h100v552zM704 408v96c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-96c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8zM592 512h48c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8z"></path></svg>
+          </span>
+          <span class="navlink">Expenses</span>
+        <% end %>
+      </li>
+       <li class="item clicknav" >
+        <%= link_to expensecategory_path, class: "nav_link" do %>
+          <span class="navlink_icon">
+            <i class="bx bx-wallet-alt"></i>
+          </span>
+          <span class="navlink">Expenses Category</span>
+        <% end %>
+      </li>
+     
+      <li class="item ">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-cog"></i>
+              </span>
+              <span class="navlink">Settings</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <ul class="menu_items submenu">
+              <%= link_to "Admin", adminpath_path, class: "nav_link sublink clicknav" %>
+
+              <a href="#" class="nav_link sublink">Branch</a>
+              <a href="#" class="nav_link sublink">Settings</a>
+              <a href="#" class="nav_link sublink">Currencies</a>
+              <a href="#" class="nav_link sublink">Payments Mode</a>
+              <a href="#" class="nav_link sublink">Taxes</a>
+              <a href="#" class="nav_link sublink">About</a> 
+            </ul>
+          </li>
+      <!-- Add more menu items as needed -->
+    </ul>
+ 
+      </div>
+    </nav>
+</div>
+<% end %>

@@ -1,0 +1,16 @@
+
+ <%= render 'shared/header' %>
+  <!-- Include the sidebar navigation -->
+  <%= render 'shared/navbar', expenses: @expenses %>
+
+   <!-- Main Content -->
+  
+ 
+     <%= render 'shared/expense', expenses: @expenses  %>
+     <%= render 'expenses/new' %>
+     <%= render 'expenses/edit' %>
+     <%= render 'expenses/show' %>
+<%= render 'shared/footer' %>
+
+
+

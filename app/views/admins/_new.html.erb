@@ -1,0 +1,55 @@
+
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <%= form_with(model: @admin, url: create_admin_action_path, method: :post, html: { id: 'expense-form' }) do |form| %>
+
+     <div class="form-group">
+    <%= form.label :first_name, "First Name:" %>
+    <%= form.text_field :first_name, class: "form-control", id: "expense_fname_new", placeholder: "Enter First Name" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :last_name, "Last Name:" %>
+    <%= form.text_field :last_name, class: "form-control", id: "expense_lname_new", placeholder: "Enter Last Name" %>
+  </div>
+ 
+
+  <div class="form-group">
+     <%= form.label :email, raw('<span class="required">*</span> Email'), class: "form-label" %>
+    <%= form.email_field :email, class: "input-field", id: "inputEmail_new" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :password, "Password:" %>
+    <%= form.password_field :password, class: "form-control", id: "expense_pass_new", placeholder: "Enter Password" %>
+  </div>
+  <div class="form-group">
+  <%= form.label :role %>
+  <%= form.select :role, ['Account Owner', 'Super Admin', 'Manager', 'Employee', 'Create Only', 'Read Only'], { prompt: "Select role" }, { id: "expense_role_new", class: "form-control" } %>
+</div>
+
+  <div class="form-group">
+    <%= form.label :branch %>
+    <%= form.select :branch, ['Main'], { prompt: "Select branch" }, {id: "expense_branch_new",class: "form-control"} %>
+  </div>
+    <div class="form-group">
+  <p>
+    <%= form.label :enabled, "Enabled:" %>
+ 
+   <label class="toggleSwitch nolabel" onclick="">
+        
+         <%= form.check_box :enabled, id: "expense_ena_new" ,class: "toggle-checkbox"%>
+        <span>
+            <span> &nbsp;X</span>
+            <span>&#10003;</span>
+        </span>
+        <a></a>
+    </label>
+    </p>
+    </div>
+  <%= form.submit "Create Admin", class: "btn btn-primary" %>
+<% end %>
+
+ 
+    </div>
+
+ 
+ 

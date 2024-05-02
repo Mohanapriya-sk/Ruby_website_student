@@ -1,0 +1,322 @@
+<script>
+
+  const body = document.querySelector("body");
+// const darkLight = document.querySelector("#darkLight");
+const sidebar = document.querySelector(".sidebar");
+const submenuItems = document.querySelectorAll(".submenu_item");
+const sidebarOpen = document.querySelector("#sidebarOpen");
+// const sidebarpart2 = document.querySelector("#sidebarpart2");
+// const navbar_side = document.querySelector("#navbar_side");
+
+// const sidebarClose = document.querySelector(".collapse_sidebar");
+// const sidebarExpand = document.querySelector(".expand_sidebar");
+sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
+// sidebarpart2.addEventListener("click", () => sidebar.classList.toggle("close"));
+// navbar_side.addEventListener("click", () => sidebar.classList.toggle("close"));
+ const form = document.querySelector('#expense-form');
+
+  // Check if the form exists
+  if (form) {
+    // Add an event listener for form submission
+    form.addEventListener('submit', function(event) {
+      // After form submission, clear the form fields
+    setTimeout(function() {
+  location.reload();
+}, 2000);
+    });
+
+  }
+   document.addEventListener('click', function(event) {
+    
+    if (event.target.classList.contains('clicknav')) {
+    alert();
+        setTimeout(function() {
+ location.reload()
+  closeNav();
+closeNav2();
+closeNav3()
+}, 2000);
+    }
+  });
+window.onload = function() {
+   
+  
+  closeNav();
+closeNav2();
+closeNav3()
+
+}
+const form2 = document.querySelector('#expenseForm_2');
+
+  // Check if the form exists
+  if (form2) {
+    // Add an event listener for form submission
+    form2.addEventListener('submit', function(event) {
+      // After form submission, clear the form fields
+    location.reload();  
+    });
+    
+  }
+
+// sidebarClose.addEventListener("click", () => {
+//   sidebar.classList.add("close", "hoverable");
+// });
+// sidebarExpand.addEventListener("click", () => {
+//   sidebar.classList.remove("close", "hoverable");
+// });
+if (window.location.href.includes('/expenses')) {
+    location.reload();
+  }
+  function refreshpage(){
+     location.reload();
+  }
+// sidebar.addEventListener("mouseenter", () => {
+//   if (sidebar.classList.contains("hoverable")) {
+//     sidebar.classList.remove("close");
+//   }
+// });
+// sidebar.addEventListener("mouseleave", () => {
+//   if (sidebar.classList.contains("hoverable")) {
+//     sidebar.classList.add("close");
+//   }
+// });
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('mainContent');
+    const overlay = document.getElementById('overlay');
+
+    if (sidebar.style.left === '-250px') {
+        sidebar.style.left = '0';
+        mainContent.style.marginLeft = '250px';
+        overlay.style.display = 'block';
+    } else {
+        sidebar.style.left = '-250px';
+        mainContent.style.marginLeft = '0';
+        overlay.style.display = 'none';
+    }
+}
+// darkLight.addEventListener("click", () => {
+//   body.classList.toggle("dark");
+//   if (body.classList.contains("dark")) {
+//     document.setI;
+//     darkLight.classList.replace("bx-sun", "bx-moon");
+//   } else {
+//     darkLight.classList.replace("bx-moon", "bx-sun");
+//   }
+// });
+
+submenuItems.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("show_submenu");
+    submenuItems.forEach((item2, index2) => {
+      if (index !== index2) {
+        item2.classList.remove("show_submenu");
+      }
+    });
+  });
+});
+
+if (window.innerWidth < 768) {
+  sidebar.classList.add("close");
+} else {
+  sidebar.classList.remove("close");
+}
+function closeOpenDropdowns(e) {
+  let openDropdownEls = document.querySelectorAll("details.dropdown[open]");
+
+  if (openDropdownEls.length > 0) {
+    // If we're clicking anywhere but the summary element, close dropdowns
+    if (e.target.parentElement.nodeName.toUpperCase() !== "SUMMARY") {
+      openDropdownEls.forEach((dropdown) => {
+        dropdown.removeAttribute("open");
+      });
+    }
+  }
+}
+closeNav();
+closeNav2();
+closeNav3()
+function openNav() {
+      document.getElementById("mySidenav").style.width = "350px";
+      document.getElementById("mySidenav").style.padding = "15px";
+      document.getElementById("mySidenav").style.paddingTop = "70px";
+  }
+  function closeNav() {
+    closeNav2();
+    closeNav3()
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("mySidenav").style.padding = "0";
+  }
+  function openNav2() {
+    closeNav();
+    closeNav3()
+      document.getElementById("mySidenav2").style.width = "350px";
+      document.getElementById("mySidenav2").style.padding = "15px";
+      document.getElementById("mySidenav2").style.paddingTop = "70px";
+  }
+  function closeNav2() {
+      document.getElementById("mySidenav2").style.width = "0";
+      document.getElementById("mySidenav2").style.padding = "0";
+  }
+
+  function openNav3() {
+    closeNav();
+    closeNav2()
+      document.getElementById("mySidenav3").style.width = "350px";
+      document.getElementById("mySidenav3").style.padding = "15px";
+      document.getElementById("mySidenav3").style.paddingTop = "70px";
+  }
+  function closeNav3() {
+      document.getElementById("mySidenav3").style.width = "0";
+      document.getElementById("mySidenav3").style.padding = "0";
+  }
+
+  function editExpense(expenseId) {
+    // Open the modal (assuming you have a function to show/hide the modal)
+    openNav2();
+
+    // Fetch the expense data via AJAX
+    fetch(`/admins/${expenseId}.json`)
+      .then(response => response.json())
+      .then(expenseData => {
+        console.log('Fetched user data:', expenseData);
+
+            document.getElementById('expense_fname_2').value = expenseData.first_name;
+        document.getElementById('expense_lname_2').value =expenseData.last_name;
+        document.getElementById('inputEmail').value =expenseData.email;
+        const selectElement = document.getElementById('expense_role_2');
+
+// Iterate over each option in the dropdown to find a match and set it as selected
+for (let option of selectElement.options) {
+  if (option.value === expenseData.role) {
+    option.selected = true; // Select the matching option
+    break; // Exit the loop after selecting the option
+  }
+}
+                 // document.getElementById('expense_role_2').value =expenseData.role;
+                 const selectElement2 = document.getElementById('expense_branch_2');
+
+// Iterate over each option in the dropdown to find a match and set it as selected
+for (let option of selectElement2.options) {
+  if (option.value === expenseData.branch) {
+    option.selected = true; // Select the matching option
+    break; // Exit the loop after selecting the option
+  }
+}
+          // document.getElementById('expense_branch_2').value =expenseData.branch;
+        document.getElementById('expense_ena_2').checked =expenseData.enabled;
+
+        // Update the form action URL
+        const form = document.getElementById('expenseForm_2');
+        form.action = `/update_admin_action/${expenseId}`;
+      })
+      .catch(error => console.error('Error fetching user data:', error));
+  }
+
+   
+
+
+ function showExpense(expenseId) {
+    // Open the modal (assuming you have a function to show/hide the modal)
+    openNav3();
+
+    // Fetch the expense data via AJAX
+    fetch(`/admins/${expenseId}.json`)
+      .then(response => response.json())
+      .then(expenseData => {
+        console.log('Fetched user data:', expenseData);
+
+        // Populate the form fields with the fetched data
+        document.getElementById('expense_fname_3').innerHTML = 'First Name : ' + expenseData.first_name;
+        document.getElementById('expense_lname_3').innerHTML = 'Last Name : ' + expenseData.last_name;
+        document.getElementById('inputEmail_3').innerHTML = 'Email : ' + expenseData.email;
+         document.getElementById('expense_role_3').innerHTML = 'Role : ' + expenseData.role;
+          document.getElementById('expense_branch_3').innerHTML = 'Branch : ' + expenseData.branch;
+        document.getElementById('expense_ena_3').innerHTML = 'Enabled : ' + expenseData.enabled;
+
+    
+      })
+      .catch(error => console.error('Error fetching user data:', error));
+  }
+
+  function deleteExpense(expenseId) {
+  // Confirm deletion
+  if (confirm('Are you sure you want to delete this user?')) {
+     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    // Send a DELETE request to the specified URL
+    fetch(`/delete_admin_action/${expenseId}`, {
+      method: 'DELETE',
+       headers: {
+        'X-CSRF-Token': csrfToken,
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Expense was successfully deleted
+        console.log('User deleted successfully.');
+        // Redirect to expenses index page or perform any necessary action
+        window.location.reload(); // Reload the current page
+      } else {
+        throw new Error('Failed to delete user.');
+      }
+    })
+    .catch(error => {
+      console.error('Error deleting admin:', error);
+      // Handle error appropriately (e.g., display error message)
+      alert('Failed to delete admin Please try again.');
+    });
+  }
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/fontawesome.min.js" integrity="sha512-1M9vud0lqoXACA9QaA8IY8k1VR2dMJ2Qmqzt9pN2AH7eQHWpNsxBpaayV0kKkUsF7FLVQ2sA2SSc8w5VOm7/mg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<!-- Bootstrap JS (Popper.js is required for dropdowns) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
+<script>
+  $(document).ready(function() {
+  $("#example").DataTable({
+    aaSorting: [],
+    responsive: true,
+
+    columnDefs: [
+      {
+        responsivePriority: 1,
+        targets: 0
+      },
+      {
+        responsivePriority: 2,
+        targets: -1
+      }
+    ]
+  });
+
+  $(".dataTables_filter input")
+    .attr("placeholder", "Search here...")
+    .css({
+      width: "300px",
+      display: "inline-block"
+    });
+
+  $('[data-toggle="tooltip"]').tooltip();
+});
+ function dropdn(expenseId) {
+    const dropdownMenu = document.getElementById(`expenseDropdown_${expenseId}`);
+
+    // Toggle the display of the dropdown menu
+    if (dropdownMenu.style.display === "block") {
+      dropdownMenu.style.display = "none";
+    } else {
+      dropdownMenu.style.display = "block";
+    }
+  }
+</script>
+</body>
+</html>

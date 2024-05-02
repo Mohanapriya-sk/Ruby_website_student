@@ -1,0 +1,54 @@
+<!-- app/views/shared/_form.html.erb -->
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      
+          <%= form_with(model: form.object, local: true) do |form| %>
+            <h2 class="text-center mb-4"><%= form_title %></h2>
+
+            <!-- Display validation errors if any -->
+            <% if form.object.errors.any? %>
+              <div class="alert alert-danger">
+                <ul>
+                  <% form.object.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <!-- Form fields -->
+            <div class="mb-3">
+              <%= form.label :email, class: "form-label" %>
+              <%= form.email_field :email, class: "form-control", placeholder: "Enter your email" %>
+            </div>
+
+            <div class="mb-3">
+               <%= form.label :password, raw('<span class="required">*</span> Password'), class: "form-label" %>
+              <%= form.password_field :password, class: "form-control", placeholder: "Enter your password" %>
+            </div>
+
+            <% if form.object.class == User %>
+              <div class="mb-3">
+                <%= form.label :name, class: "form-label" %>
+                <%= form.text_field :name, class: "form-control", placeholder: "Enter your name" %>
+              </div>
+
+              <div class="mb-3">
+                <%= form.label :country, class: "form-label" %>
+                <%= form.select :country, @countries, {}, class: "form-control", prompt: "Select your country" %>
+              </div>
+            <% end %>
+
+            <!-- Submit button -->
+            <%= form.submit "Submit", class: "btn btn-primary btn-block" %>
+          <% end %>
+
+          <!-- Link to alternative action (e.g., login or signup) -->
+          <p class="text-center mt-3">
+            <%= form.link_to form.link_text, form.link_path %>
+          </p>
+      
+    </div>
+  </div>
+</div>

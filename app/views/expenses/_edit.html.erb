@@ -1,0 +1,33 @@
+	<div id="mySidenav2" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+		 <%= form_with(model: @expense, id: 'expenseForm_2', method: :patch, local: true) do |form| %>
+    
+  <div class="form-group">
+    <%= form.label :name, "Name:" %>
+    <%= form.text_field :name, class: "form-control", id: "expense_name_2", placeholder: "Enter name" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :expense_category_id, "Expense Category:" %>
+    <%= form.select :expense_category_id, options_for_select(ExpenseCategory.pluck(:name, :id), @expense.expense_category_id), {}, id: "expense_expense_category_id_2", class: "form-control", prompt: "Select category" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :currency, "Currency:" %>
+    <%= form.select :currency, ['USD', 'EUR', 'GBP', 'JPY'], {}, id: "expense_currency_2", class: "form-control", prompt: "Select currency" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :total, "Total:" %>
+    <%= form.text_field :total, class: "form-control", id: "expense_total_2", placeholder: "Enter total amount" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :description, "Description:" %>
+    <%= form.text_area :description, class: "form-control", id: "expense_description_2", placeholder: "Enter description" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :ref, "Ref:" %>
+    <%= form.text_field :ref, id: "expense_ref_2" , class: "form-control", placeholder: "Enter reference" %>
+  </div>
+  <%= form.submit "Update Expense",id: "edit_expsubmit_2" , class: "btn btn-primary" %>
+<% end %>
+
+		</div>
+

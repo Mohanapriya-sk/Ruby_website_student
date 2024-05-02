@@ -1,0 +1,51 @@
+
+       
+
+
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <%= form_with(model: @expense, url: create_expense_action_path, method: :post, html: { id: 'expense-form' }) do |form| %>
+
+      <% if @expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+      <ul>
+        <% @expense.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "Name:" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter name" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :expense_category_id, "Expense Category:" %>
+    <%= form.select :expense_category_id, options_for_select(ExpenseCategory.pluck(:name, :id)), {}, class: "form-control", prompt: "Select category" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :currency, "Currency:" %>
+    <%= form.select :currency, ['USD', 'EUR', 'GBP', 'JPY'], {}, class: "form-control", prompt: "Select currency" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :total, "Total:" %>
+    <%= form.text_field :total, class: "form-control", placeholder: "Enter total amount" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :description, "Description:" %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Enter description" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :ref, "Ref:" %>
+    <%= form.text_field :ref, class: "form-control", placeholder: "Enter reference" %>
+  </div>
+  <%= form.submit "Create Expense", class: "btn btn-primary" %>
+<% end %>
+
+ 
+    </div>
+
+ 
+ 

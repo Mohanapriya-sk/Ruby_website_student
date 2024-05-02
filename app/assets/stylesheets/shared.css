@@ -1,0 +1,68 @@
+
+/* app/assets/stylesheets/shared.css */
+.company-description {
+  text-align: center;
+  margin-top: 20px;
+   color: #4f5d75 !important;
+}
+
+.company-logo {
+  width: 150px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.company-description h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.company-description p {
+  font-size: 16px;
+ color: #4f5d75 !important;
+  margin-bottom: 20px;
+}
+
+.company-description ul {
+  text-align: left;
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+
+.tick-list {
+  list-style-type: none; /* Remove default list-style (bullets) */
+  padding-left: 20px;
+}
+
+.tick-list li::before {
+
+  content: "\2713"; /* Unicode checkmark symbol */
+  color: #28a745; /* Green color for checkmark */
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* app/assets/stylesheets/custom.css */
+.required {
+  color: #ff0000; /* Red color for mandatory symbol */
+}
+ a {
+    color: #1640d6;
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 14px;
+    text-align: left;
+
+    
+}
+a:hover {
+    color: #658cf0;
+}
+.container{
+  max-width: 100%!important;
+}
